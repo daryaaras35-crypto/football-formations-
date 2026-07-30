@@ -1,0 +1,48 @@
+const formations = {
+    "433": {
+        title: "تەشکیلەی 4-3-3",
+        description: "ئەم تەشکیلەیە پێکهاتووە لە 4 بەرگریکار، 3 یاریزانی ناوڕاست، و 3 هێرشبەر. زیاتر بۆ ئەو تیمانە باشە کە حەزیان لە کۆنتڕۆڵی تۆپ و هێرشی خێرایە لە باڵەکانەوە.",
+        strengths: ["پەستانی زۆر لەسەر بەرامبەر", "بەهێزی لە هێرشبردن لە باڵەکانەوە"],
+        weaknesses: ["کەلێنی پشت بەرگریکارەکان لە کاتی هەڵگەڕانەوەی تۆپدا"]
+    },
+    "442": {
+        title: "تەشکیلەی 4-4-2",
+        description: "کلاسیکترین تەشکیلەی تۆپی پێیە. هاوسەنگییەکی تەواو دەبەخشێت بە هێڵی بەرگری و ناوڕاست بە دوو هێرشبەر لە پێشەوە.",
+        strengths: ["ڕێکخستنی زۆر ئاسان بۆ بەرگری", "دوو هێرشبەر لە ناو سندوقی جەزادا"],
+        weaknesses: ["کەمبوونی یاریزان لە ناوەڕاستی یاریگادا بەرامبەر تەشکیلەی وەک 4-3-3"]
+    },
+    "352": {
+        title: "تەشکیلەی 3-5-2",
+        description: "تەشکیلەیەکە کۆنتڕۆڵی تەواوی ناوڕاستی یاریگا دەکات. پێویستی بە یاریزانی باڵی زۆر بەهێزە (Wing-backs) کە بتوانن هەم بەرگری و هەم هێرش بکن.",
+        strengths: ["کۆنتڕۆڵکردنی ناوڕاستی یاریگا", "بەرگرییەکی بەهێز بە 5 یاریزان لە کاتی پاشەکشێدا"],
+        weaknesses: ["فشارێکی زۆر لەسەر یاریزانانی باڵ هەیە"]
+    },
+    "4231": {
+        title: "تەشکیلەی 4-2-3-1",
+        description: "یەکێک لە باوترین تەشکیلەکانی سەرکەوتووی سەردەم. 2 یاریزانی شکان لە ناوڕاستدا هەیە کە ئازادی دەدەنە 3 یاریزانەکەی پێشەوە بۆ دروستکردنی هەل.",
+        strengths: ["پاراستنی هێڵی بەرگری بەهۆی دوو ئارتێکازەکەوە", "ئازادی دان بە دروستکەری یاری (Cam)"],
+        weaknesses: ["هێرشبەری سەرەڕم جارجار بە تەنها دەمێنێتەوە"]
+    }
+};
+
+function showFormation(key) {
+    const data = formations[key];
+    document.getElementById("title").innerText = data.title;
+    document.getElementById("description").innerText = data.description;
+
+    const strengthsList = document.getElementById("strengths");
+    strengthsList.innerHTML = "";
+    data.strengths.forEach(item => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        strengthsList.appendChild(li);
+    });
+
+    const weaknessesList = document.getElementById("weaknesses");
+    weaknessesList.innerHTML = "";
+    data.weaknesses.forEach(item => {
+        let li = document.createElement("li");
+        li.innerText = item;
+        weaknessesList.appendChild(li);
+    });
+}
